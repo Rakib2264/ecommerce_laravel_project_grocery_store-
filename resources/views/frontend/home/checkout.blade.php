@@ -110,7 +110,51 @@
 				<div class="col-md-8 address_form_agile">
 					  <h4>Add a new Details</h4>
 
-				<form action="{{route("confirmorder")}}" method="post" class="creditly-card-form agileinfo_form">
+				<!-- <form action="{{route("confirmorder")}}" method="post" class="creditly-card-form agileinfo_form">
+				@csrf				
+				<input type="hidden" name="total_price" value="{{ $sum }}">	
+<input type="hidden" name="total_qty" value="{{ $qty }}">	
+
+@foreach($productsname as $product)
+    <input type="hidden" name="product_name" value="{{ $product->name }}">	
+    <input type="hidden" name="product_image" value="{{ $product->image }}">	
+@endforeach
+
+
+				<section class="creditly-wrapper wthree, w3_agileits_wrapper">
+										<div class="information-wrapper">
+											<div class="first-row form-group">
+												<div class="controls">
+													<label class="control-label">Full name: </label>
+													<input class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
+												</div>
+												<div class="w3_agileits_card_number_grids">
+													<div class="w3_agileits_card_number_grid_left">
+														<div class="controls">
+															<label class="control-label">Mobile number:</label>
+														    <input class="form-control" name="phone" type="text" placeholder="Mobile number">
+														</div>
+													</div>
+													<div class="w3_agileits_card_number_grid_right">
+														<div class="controls">
+															<label class="control-label">Email: </label>
+														 <input class="form-control" name="email" type="email" placeholder="Email">
+														</div>
+													</div>
+													<div class="clear"> </div>
+												</div>
+												<div class="controls">
+													<label class="control-label">Address: </label>
+												 <textarea name="address" class="form-control" rows="5"></textarea>
+												</div>
+													 
+											</div>
+											<button type="submit" class="submit check_out">Confirm Order</button>
+										</div>
+									</section>
+								</form> -->
+
+								<form action="{{route("payment")}}" method="POST"  class="creditly-card-form agileinfo_form">
 				@csrf				
 				<input type="hidden" name="total_price" value="{{ $sum }}">	
 <input type="hidden" name="total_qty" value="{{ $qty }}">	
@@ -153,6 +197,8 @@
 										</div>
 									</section>
 								</form>
+
+
 									 
 					</div>
 			

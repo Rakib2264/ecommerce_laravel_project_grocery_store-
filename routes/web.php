@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 |
 */
 
-Route::get('/',[FrontendController::class,'index']);
+Route::get('/',[FrontendController::class,'index'])->name('home');
 Route::get('/product/details/{id}/{slug}',[FrontendController::class,'productdetails'])->name('productdetails');
 Route::get('/category/products/{slug}',[FrontendController::class,'categoryProducts'])->name('categoryProducts');
 Route::post('/category/products',[CartController::class,'addtocart'])->name('addtocart');
@@ -63,3 +64,8 @@ Route::middleware([
 });
 
 
+Route::post('/payment', [PaymentController::class,'payment'])->name('payment');
+
+Route::post('/success', [PaymentController::class,'success'])->name('success');
+Route::post('/fail', [PaymentController::class,'fail'])->name('fail');
+Route::post('/cancel', [PaymentController::class,'cancel'])->name('cancel');
